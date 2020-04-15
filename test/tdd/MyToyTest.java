@@ -29,7 +29,7 @@ public class MyToyTest {
     @Test
     public void testSuccessfulCases() {
         assertEquals(1, cF(0));
-        assertEquals(2, cF(2));
+        assertEquals(20, cF(2));
         assertEquals(24, cF(4));
         assertEquals(720, cF(6));
         assertEquals(120, cF(5));
