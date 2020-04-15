@@ -42,3 +42,23 @@ public class MyToyTest {
         cF(-5); // ném ngoại lệ
     }
 }
+
+
+// CODE VIẾT ỔN, KHÔNG SAI CÚ PHÁP THÌ LUÔN RA ĐƯỢC .JAR, .WAR, .EAR, .APK, .EXE, .DLL
+// TUY NHIÊN CODE CỦA TA CÒN TIỀM ẨN SAI SÓT LOGIC, HÀM CHẠY KO ĐÚNG, NHƯNG KO SAI CÚ PHÁP
+// NGUY HIỂM KHI CÓ SAI LOGIC MÀ VẪN RA FILE.JAR
+// CẦN TÌM CÁCH NGĂN ANT LẠI KHI CODE SAI LOGIC, TEST RA MÀU ĐỎ, KHÔNG CHO RA FILE .JAR
+
+// CHƠI LỚN:
+// ÉP THẰNG ANT PHẢI DDMA RBAOR CODE XANH, THÔNG ĐƯỜNG, PASS HẾT TEST, KHÔNG ERROR
+// VỀ MẶT GIÁ TRỊ THÌ MỚI CHO CLEAN AND BUILD
+// build-impl.xml dòng 1005 or 1204 version mới(search JAR BUILDING SECTION), thêm test vào sau compile
+
+// Jenkins, TeamCity... là tool sinh ra giúp ta những điều vừa làm bằng tay
+// nó tự động làm những điều sau
+// bất kì ai push code lên Git server về thì phải push kèm bộ data/test
+// Jenkins phát hiện có sự thay đổi trên Git, kéo code/pull về local
+// Gọi Ant/Maven compile/test thử/ đóng gói nếu test màu xanh
+// nếu test bị đỏ, nó tự gửi email đến thằng vừa push, chửi, chỉ ra lỗi
+// thằng dev nhận mail, sửa rồi push lại, Jenkins lặp lại cho đến khi nào
+// thấy màu xanh, hoặc Dev lấy, xóa mẹ test đi Jenkins mới dừng gửi mail
