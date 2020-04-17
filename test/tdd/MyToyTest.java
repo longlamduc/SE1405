@@ -27,21 +27,32 @@ public class MyToyTest {
     
     // tình huống thành công
     @Test
-    public void testSuccessfulCases() {
-        assertEquals(1, cF(0));
-        assertEquals(20, cF(2));
+    public void testSuccessfulLower10Cases() {
+        assertEquals(10, cF(0));
+        assertEquals(2, cF(2));
         assertEquals(24, cF(4));
         assertEquals(720, cF(6));
         assertEquals(120, cF(5));
+    }
+    @Test
+    public void testSuccessfulUpper10Cases() {
+        assertEquals(3_628_800, cF(10));
+        assertEquals(39_916_800, cF(11));
     }
     
     // ngoại lệ/Exception không được xem là một value để so sánh
     // không là value thì không thẻ dùng hà assertEquals(yêu cầu so sánh value cụ thể)
     @Test(expected = IllegalArgumentException.class) //giống try catch
-    public void testExceptionCases() {
+    public void testExceptionNegativeCases() {
         cF(-5); // ném ngoại lệ
     }
-}
+    
+    @Test(expected = IllegalArgumentException.class) //giống try catch
+    public void testExceptionPositiveCases() {
+        cF(16); // ném ngoại lệ
+    }
+    
+    
 
 
 // CODE VIẾT ỔN, KHÔNG SAI CÚ PHÁP THÌ LUÔN RA ĐƯỢC .JAR, .WAR, .EAR, .APK, .EXE, .DLL
@@ -62,3 +73,4 @@ public class MyToyTest {
 // nếu test bị đỏ, nó tự gửi email đến thằng vừa push, chửi, chỉ ra lỗi
 // thằng dev nhận mail, sửa rồi push lại, Jenkins lặp lại cho đến khi nào
 // thấy màu xanh, hoặc Dev lấy, xóa mẹ test đi Jenkins mới dừng gửi mail
+}
