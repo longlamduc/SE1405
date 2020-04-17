@@ -28,7 +28,7 @@ public class MyToyTest {
     // tình huống thành công
     @Test
     public void testSuccessfulLower10Cases() {
-        assertEquals(10, cF(0));
+        assertEquals(1, cF(0));
         assertEquals(2, cF(2));
         assertEquals(24, cF(4));
         assertEquals(720, cF(6));
